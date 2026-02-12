@@ -1,22 +1,22 @@
 {
-  "name": "@gristlabs/widget-template-builder",
+  "name": "@gristlabs/vibe-view",
   "description": "Create templates for pages or catalogs from Grist data.",
-  "homePage": "https://github.com/gristlabs/grist-widget-ee",
+  "homePage": "https://github.com/gristlabs/vibe-view-widget",
   "version": "0.0.1",
   "grist": {
-    "name": "Template Builder",
-    "url": "https://gristlabs.github.io/grist-widget/template-builder/index.html",
-    "widgetId": "@gristlabs/template-builder",
+    "name": "Vibe View",
+    "url": "https://gristlabs.github.io/grist-widget/vibe-view/",
+    "widgetId": "@gristlabs/vibe-view",
     "published": true,
     "accessLevel": "read table",
     "renderAfterReady": true,
     "description": "Create templates for pages or catalogs from Grist data.",
+    "isGristLabsMaintained": false,
     "authors": [
       {
-        "name": "Grist Labs",
-        "url": "https://github.com/gristlabs"
+        "name": "Dmitry Sagalovskiy",
+        "url": "https://github.com/dsagal"
       }
-    ],
-    "isGristLabsMaintained": "enterprise"
+    ]
   }
 }
