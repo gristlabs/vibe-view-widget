@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Template Builder</title>
+  <title>Vibe View</title>
   <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- moment uses a loader that conflicts with monaco-editor, but works if moment is included first. -->
@@ -85,22 +85,7 @@
       </div>
     </template>
 
-    <div class="modal-bg" v-if="isReadonly && (showInfo || tab === 'edit')" @click.self="dismissNotice">
-      <div class="floating-buttons" v-if="template !== ''">
-        <button class="button" title="Close info" @click="dismissNotice">
-          Close
-        </button>
-      </div>
-      <div class="modal info-text">
-        <p>Template Builder makes it easier to builder custom widgets. It is available on getgrist.com
-        and on self-hosted Grist Enterprise plans.
-
-        <p>In the open-source Grist version, Template Builder doesn't support building or editing, but
-        if you have an existing Template Builder widget imported with a document built in another
-        installation, it should show correctly.
-      </div>
-    </div>
-    <div class="modal-bg" v-else-if="showInfo" @click.self="showInfo = false">
+    <div class="modal-bg" v-if="showInfo" @click.self="showInfo = false">
       <div class="floating-buttons">
         <button class="button" title="Copy instructions to clipboard"
            onclick="window.getSelection().selectAllChildren(document.querySelector('.copy-content'));
@@ -146,7 +131,8 @@
 
           <p>Note that LiquidJS is set to escape HTML by default.
 
-          <p>You may produce a full HTML page or just contents for its body.
+          <p>You may produce a full HTML page or just contents for its body. Your output will be
+          rendered in an iframe.
           You can include <code>&lt;style&gt;</code> and
           <code>&lt;script&gt;</code> tags or import external stylesheets and scripts.
         </div>

@@ -8,7 +8,7 @@
     "url": "https://gristlabs.github.io/grist-widget/vibe-view/",
     "widgetId": "@gristlabs/vibe-view",
     "published": true,
-    "accessLevel": "read table",
+    "accessLevel": "full",
     "renderAfterReady": true,
     "description": "Create templates for pages or catalogs from Grist data.",
     "isGristLabsMaintained": false,

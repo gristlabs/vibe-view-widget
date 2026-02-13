@@ -66,7 +66,6 @@ let _editorPromise = null;
 const ensureEditor = () => (_editorPromise || (_editorPromise = _initEditor()));
 const userContent = ref(null);
 const currentTableId = ref('');
-const isReadonly = ref(false);
 
 let fetchRecordsPerRenderCount = 0;
 const fetchRecordsPerRenderLimit = 5;
@@ -94,7 +93,7 @@ This is an example of a template you could write. See "Info" button for full ins
 
 let gristSettings = null;
 let serverOptions = null;
-const getServerTemplateValue = () => (serverOptions?.html || (isReadonly.value ? '' : initialValue));
+const getServerTemplateValue = () => (serverOptions?.html || initialValue);
 
 async function goToError(error) {
   tab.value = 'edit';
@@ -162,7 +161,7 @@ function setEditorErrorMarkers(error) {
   } catch (e) {
     console.warn("Error setting error markers", e);
   }
-  monaco.editor.setModelMarkers(editor.getModel(), "template-builder", markers);
+  monaco.editor.setModelMarkers(editor.getModel(), "vibe-view", markers);
   if (!markers.length) {
     editor.trigger(null, "closeMarkersNavigation", null);
   }
@@ -382,7 +381,6 @@ ready(async function() {
   }
   grist.onOptions((options, settings) => {
     gristSettings = settings;
-    // isReadonly.value = !['enterprise', 'saas'].includes(settings.deploymentType);
     if (!serverOptions && !options?.html && options?.toolbar !== false) {
       tab.value = "edit";
       showInfo.value = true;
@@ -444,7 +442,7 @@ ready(async function() {
         template, templateError, goToError,
         haveLocalEdits, serverDiverged, resetFromOptions,
         userContent, printIframe,
-        isReadonly, dismissNotice,
+        dismissNotice,
       };
     }
   });
@@ -468,7 +466,6 @@ function printIframe() {
 
 // Initialize Monaco editor.
 async function _initEditor() {
-  if (isReadonly.value) { return; }
   require.config({ paths: {'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs'}});
   await new Promise((resolve, reject) => require(['vs/editor/editor.main'], resolve, reject));
   editor = monaco.editor.create(document.getElementById("editor"), {
