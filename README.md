@@ -4,7 +4,7 @@ This repository contains the "Vibe View" widget for [Grist](https://www.getgrist
 
 ## Description
 
-The View View widget allows creating a read-only view of some Grist data using a single
+The Vibe View widget allows creating a read-only view of some Grist data using a single
 [LiquidJS](https://liquidjs.com/tutorials/intro-to-liquid.html) HTML template. This template has
 access to certain dynamic variables to easily access Grist data. This makes it easy to use AI to
 generate nice-looking templates.
@@ -39,6 +39,14 @@ Vibe View can access data outside of the current table via Reference and Referen
 It can't do lookups. If you have relevant data in other tables, you can create references to it
 using [lookup formulas](https://support.getgrist.com/references-lookups/#lookuprecords) or
 [two-way references](https://support.getgrist.com/col-refs/#two-way-references).
+
+⚠️  Note about reactivity: the widget will react to changes in the main table it is rendering.
+To have it update automatically when referenced data changes, set up formulas in the main table
+that will react to such updates. For example, if the widget renders and invoice, a formula for
+"total" in the main table will cause the widget to update whenever the total changes, but a change
+to an item that doesn't affect the total will not cause it to update. You can switch to
+another page and come back to force the widget re-render.
+
 
 ## Developer notes
 
