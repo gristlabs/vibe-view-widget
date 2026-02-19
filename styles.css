@@ -28,8 +28,8 @@ body {
   justify-content: space-between;
   min-height: 3rem;
   padding: 0.5rem 0.75rem;
-  background-color: rgb(243 244 246);
-  border-bottom: 1px solid rgb(209 213 219);
+  background-color: var(--grist-theme-bg-secondary, rgb(243 244 246));
+  border-bottom: 1px solid var(--grist-theme-decoration-primary, rgb(209 213 219));
   font-size: small;
 }
 .toolbar-group {
@@ -66,6 +66,7 @@ button, .button {
 .button-group {
   display: flex;
   border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
   border-radius: 0.375rem;
   overflow: hidden;
 }
@@ -149,6 +150,7 @@ button, .button {
 .status-bar {
   height: 2rem;
   background-color: #fef9c3;
+  color: var(--grist-theme-black);
   padding: 0.25rem 0.75rem;
   border-bottom: 1px solid #0000001a;
   font-size: 0.875rem;
@@ -189,7 +191,7 @@ button, .button {
   position: relative;
 }
 .info-text code, .info-text pre {
-  background-color: #EEE;
+  background-color: var(--grist-theme-bg-tertiary, #EEE);
   border-radius: 3px;
   padding: 2px 4px;
   overflow-x: auto;
@@ -214,7 +216,7 @@ button, .button {
   position: relative;
   flex: auto;
   margin: 2.5rem 0.5rem 0.5rem 0.5rem;
-  background-color: #fff;
+  background-color: var(--grist-theme-bg-default, white);
   border-radius: 0.5rem;
   overflow: auto;
 }
